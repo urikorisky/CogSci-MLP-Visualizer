@@ -199,11 +199,15 @@ def create_network_svg(architecture, weights, activations=None, is_delta=False, 
         max_w = float(np.max(flattened)) + 1e-5
         min_w = float(np.min(flattened)) - 1e-5
     
-    if is_delta and global_max_delta > 0:
-        max_w = global_max_delta
-        min_w = 0.0
-
-    max_abs = max(abs(min_w), abs(max_w))
+    if is_delta:
+        if global_max_delta > 0:
+            max_w = global_max_delta
+            min_w = 0.0
+        max_abs = max(abs(min_w), abs(max_w))
+    else:
+        max_w = 1.5
+        min_w = -1.5
+        max_abs = 1.5
     
     svg = [f'<svg width="100%" height="auto" viewBox="0 0 {width} {height}" style="background-color: #f9f9fa; border-radius: 8px;" xmlns="http://www.w3.org/2000/svg">']
     
