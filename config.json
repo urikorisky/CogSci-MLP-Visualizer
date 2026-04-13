@@ -1,0 +1,10 @@
+{
+  "dataset_path": "zoo.csv",
+  "features": [
+    "hair", "feathers", "eggs", "milk", "airborne", "aquatic", 
+    "predator", "toothed", "backbone", "breathes", "venomous", 
+    "fins", "legs", "tail", "domestic", "catsize"
+  ],
+  "target": "class_type",
+  "architecture": [16, 12, 12, 7]
+}
